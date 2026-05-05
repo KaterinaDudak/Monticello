@@ -1,0 +1,119 @@
+@use "vars";
+@use "mixins" as *;
+
+.slider-2 {
+  position: relative;
+  margin: 0 auto;
+
+  
+
+  .slick-dots {
+    @include flex();
+    gap: 40px;
+    flex-direction: row;
+    position: absolute;
+    right: 50%;
+    bottom: -50px;
+    transform: translate(50%, 50%);
+    z-index: 3;
+
+    li {
+      &.slick-active {
+        button {
+          background-color: var(--color-light);
+        }
+      }
+    }
+
+    button {
+      font-size: 0;
+      width: 10px;
+      height: 10px;
+      border: 1px solid var(--color-light);
+      border-radius: 50%;
+      background-color: transparent;
+    }
+  }
+}
+.slide-2 {
+  margin: 10px;
+
+  & > img {
+    max-width: 100%;
+    margin: 0 auto;
+
+  }
+  &__descr {
+    background-color: var(--color-light);
+    max-width: 370px;
+    padding: 30px 20px;
+    text-align: left;
+    min-height: 270px;
+    margin: 0 auto;
+
+  }
+
+  &__title {
+    margin-bottom: 15px;
+  }
+  &__text {
+    color: var(--main-color);
+    @include title(400, 18px);
+    text-transform: none;
+    margin-bottom: 40px;
+  }
+}
+
+.author {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+
+  &__img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  &__date{
+    @include title(400, 14px);
+    color: var(--color-accent-2);
+    text-transform: none;
+    margin-top: 6px;
+  }
+}
+.slider-2 > .slick-arrow {
+  @include flex();
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-light);
+  border-radius: 50%;
+  z-index: 3;
+  font-size: 0;
+  background-color: transparent;
+
+  &::before {
+    content: "<";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: var(--color-light);
+  }
+}
+
+.slider-2 > .slick-prev {
+  left: -80px;
+}
+.slider-2 > .slick-next {
+  left: none;
+  right: -80px;
+
+  &::before {
+    content: ">";
+  }
+}

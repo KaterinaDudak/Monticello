@@ -1,0 +1,16 @@
+@use "vars";
+
+@mixin flex($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+@mixin title($font-weight, $font-size, $letter-spacing: 0) {
+    font-family: var(--main-font-family);
+    text-transform: uppercase;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+}
